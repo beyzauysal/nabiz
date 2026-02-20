@@ -1,40 +1,78 @@
-Nabız – Gerçek Zamanlı Kalp Ritmi Ölçüm Uygulaması
-Proje Hakkında
+# **Nabız – Gerçek Zamanlı Kalp Ritmi Ölçüm Uygulaması**
+
+
+## **Proje Hakkında**
+
+
 Nabız, iPhone kamerası ve flaşını kullanarak gerçek zamanlı kalp atış hızını (BPM) ölçen bir iOS uygulamasıdır.
-SwiftUI ve AVFoundation kullanılarak geliştirilmiş olup, cihaz kamerasından alınan ışık değişimlerini analiz ederek dinamik BPM hesaplaması yapmaktadır.
-Bu proje, gerçek zamanlı veri işleme ve iOS sistemleri üzerine yürüttüğüm geliştirme sürecinin önemli bir parçasıdır.
-Özellikler
+
+SwiftUI ve AVFoundation kullanılarak geliştirilmiştir.
+
+Cihaz kamerasından alınan ışık değişimleri analiz edilerek dinamik BPM hesaplaması yapılır ve arayüz anlık olarak güncellenir.
+
+Bu proje, gerçek zamanlı veri işleme ve iOS sistemleri üzerine yürüttüğüm geliştirme çalışmalarının önemli bir parçasıdır.
+
+
+
+## **Özellikler**
+
+
 Kamera ve flaş tabanlı nabız ölçümü
+
 Gerçek zamanlı veri işleme
-Günlük BPM kayıtlarının saklanması
+
+Günlük ölçüm kayıtlarının saklanması
+
 Son 7 günlük ortalama analiz
-Haftalık ortalama hesaplama
+
+Haftalık BPM ortalaması hesaplama
+
 Modern ve sade SwiftUI arayüz tasarımı
-Kullanılan Teknolojiler
+
+
+
+## **Kullanılan Teknolojiler**
+
+
 SwiftUI
+
 AVFoundation
+
 AVCaptureSession
-State yönetimi
+
 Gerçek zamanlı sinyal analizi
-Reactive UI mimarisi
-Çalışma Mantığı
+
+State yönetimi ve reactive UI yapısı
+
+
+
+## **Çalışma Mantığı**
+
+
 Kullanıcı parmağını kameranın ve flaşın üzerine yerleştirir.
-Kamera, kan akışına bağlı ışık değişimlerini algılar.
-Alınan görüntü verisi işlenir.
-Algoritma BPM değerini hesaplar ve arayüz anlık olarak güncellenir.
-Veri Takibi
-Uygulama:
-Günlük ölçüm kayıtlarını saklar
-Son 7 günlük ortalamayı hesaplar
-Kullanıcıya haftalık BPM ortalamasını sunar
-Bu yapı, ileride gelişmiş analiz ve sağlık verisi entegrasyonları için temel oluşturmaktadır.
-Entegrasyon
-Bu nabız ölçüm modülü, Unity tabanlı projelere entegre edilebilir şekilde tasarlanmıştır.
-Gerçek zamanlı kalp atış verisi oyun içi mekanikleri veya diğer sistemleri dinamik olarak etkileyebilir.
-Vizyon
-Amacım, gerçek zamanlı veri işleyebilen, ölçeklenebilir ve farklı platformlarla entegre çalışabilen iOS uygulamaları geliştirmektir.
-Bu proje, bu yolculuğun başlangıç noktasıdır.
-Geliştirici
-Beyza Uysal
-Bilgisayar Mühendisliği 3. Sınıf
-iOS Geliştirici (SwiftUI Odaklı)
+
+Kamera, kan akışına bağlı ışık yoğunluğu değişimlerini algılar.
+
+Alınan görüntü verisi işlenir ve sinyal analizi yapılır.
+
+BPM değeri hesaplanarak arayüzde gösterilir.
+
+
+
+## **Veri Takibi**
+
+
+Uygulama, kullanıcı ölçümlerini günlük olarak saklar.
+
+Son 7 günün ortalamasını hesaplayarak grafik ve haftalık ortalama bilgisi sunar.
+
+Bu yapı, ileride gelişmiş analiz sistemleri ve sağlık verisi entegrasyonları için temel oluşturacak şekilde tasarlanmıştır.
+
+
+
+## **Entegrasyon**
+
+
+Nabız ölçüm modülü, farklı platformlarla entegre edilebilir şekilde geliştirilmiştir.
+
+Gerçek zamanlı kalp atış verisi, oyun mekanikleri veya diğer interaktif sistemleri dinamik olarak etkileyebilecek şekilde kullanılabilir.
