@@ -21,17 +21,17 @@ class CameraService: NSObject {
                         self.configureCamera()
                     }
                 } else {
-                    print("Kamera izni verilmedi")
+                    print("Camera access was not granted. Please enable it in Settings.")
                 }
             }
             return
         default:
-            print("Kamera izni engellenmiş")
+            print("Camera access has been blocked. Please enable it in Settings.")
             return
         }
 
         guard let videoDevice = AVCaptureDevice.default(for: .video) else {
-            print("Kamera bulunamadı")
+            print("No camera was found on this device.")
             return
         }
         device = videoDevice
@@ -42,7 +42,7 @@ class CameraService: NSObject {
                 session.addInput(input)
             }
         } catch {
-            print("Input eklenemedi: \(error.localizedDescription)")
+            print("Failed to add input.: \(error.localizedDescription)")
         }
         
         if videoDevice.hasTorch {
@@ -50,9 +50,9 @@ class CameraService: NSObject {
                 try videoDevice.lockForConfiguration()
                 videoDevice.torchMode = .on
                 videoDevice.unlockForConfiguration()
-                print("Flaş açıldı")
+                print("Flash has been turned on.")
             } catch {
-                print("Flaş açılamadı")
+                print("Unable to enable flash.")
             }
         }
         

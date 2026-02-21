@@ -6,17 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B2718B702F49CCA300B592DF /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B682F49CCA300B592DF /* CameraService.swift */; };
+		B2718B712F49CCA300B592DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6A2F49CCA300B592DF /* ContentView.swift */; };
+		B2718B722F49CCA300B592DF /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6C2F49CCA300B592DF /* MeasurementView.swift */; };
+		B2718B732F49CCA300B592DF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6B2F49CCA300B592DF /* HistoryView.swift */; };
+		B2718B742F49CCA300B592DF /* nabizStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6F2F49CCA300B592DF /* nabizStorage.swift */; };
+		B2718B752F49CCA300B592DF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B692F49CCA300B592DF /* CameraView.swift */; };
+		B2718B762F49CCA300B592DF /* nabizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6E2F49CCA300B592DF /* nabizApp.swift */; };
+		B2718B772F49CCA300B592DF /* nabiz-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = B2718B6D2F49CCA300B592DF /* nabiz-preview.png */; };
+		B2718B782F49CCA300B592DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2718B672F49CCA300B592DF /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		B2718B672F49CCA300B592DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B2718B682F49CCA300B592DF /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		B2718B692F49CCA300B592DF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		B2718B6A2F49CCA300B592DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B2718B6B2F49CCA300B592DF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		B2718B6C2F49CCA300B592DF /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
+		B2718B6D2F49CCA300B592DF /* nabiz-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nabiz-preview.png"; sourceTree = "<group>"; };
+		B2718B6E2F49CCA300B592DF /* nabizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nabizApp.swift; sourceTree = "<group>"; };
+		B2718B6F2F49CCA300B592DF /* nabizStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nabizStorage.swift; sourceTree = "<group>"; };
 		B27546952E40C39B009005CA /* BPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		B27546972E40C39B009005CA /* nabiz */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = nabiz;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B27546922E40C39B009005CA /* Frameworks */ = {
@@ -32,7 +45,15 @@
 		B275468C2E40C39B009005CA = {
 			isa = PBXGroup;
 			children = (
-				B27546972E40C39B009005CA /* nabiz */,
+				B2718B672F49CCA300B592DF /* Assets.xcassets */,
+				B2718B682F49CCA300B592DF /* CameraService.swift */,
+				B2718B692F49CCA300B592DF /* CameraView.swift */,
+				B2718B6A2F49CCA300B592DF /* ContentView.swift */,
+				B2718B6B2F49CCA300B592DF /* HistoryView.swift */,
+				B2718B6C2F49CCA300B592DF /* MeasurementView.swift */,
+				B2718B6D2F49CCA300B592DF /* nabiz-preview.png */,
+				B2718B6E2F49CCA300B592DF /* nabizApp.swift */,
+				B2718B6F2F49CCA300B592DF /* nabizStorage.swift */,
 				B27546962E40C39B009005CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,9 +81,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				B27546972E40C39B009005CA /* nabiz */,
-			);
 			name = BPM;
 			packageProductDependencies = (
 			);
@@ -82,6 +100,7 @@
 				TargetAttributes = {
 					B27546942E40C39B009005CA = {
 						CreatedOnToolsVersion = 16.3;
+						LastSwiftMigration = 2620;
 					};
 				};
 			};
@@ -109,6 +128,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2718B772F49CCA300B592DF /* nabiz-preview.png in Resources */,
+				B2718B782F49CCA300B592DF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +140,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2718B702F49CCA300B592DF /* CameraService.swift in Sources */,
+				B2718B712F49CCA300B592DF /* ContentView.swift in Sources */,
+				B2718B722F49CCA300B592DF /* MeasurementView.swift in Sources */,
+				B2718B732F49CCA300B592DF /* HistoryView.swift in Sources */,
+				B2718B742F49CCA300B592DF /* nabizStorage.swift in Sources */,
+				B2718B752F49CCA300B592DF /* CameraView.swift in Sources */,
+				B2718B762F49CCA300B592DF /* nabizApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
@@ -273,6 +302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = beyzauysal.BPM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -283,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
