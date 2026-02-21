@@ -1,6 +1,8 @@
 # **Nabız – Gerçek Zamanlı Kalp Ritmi Ölçüm Uygulaması**
 
-
+<p align="center">
+  <img src="nabiz-preview-1.png" width="700"/>
+</p>
 
 
 ## **Proje Hakkında**
