@@ -158,7 +158,7 @@ struct CameraPreview: UIViewRepresentable {
                 self.fingerDetected = detected
 
                 if !detected {
-                    self.message = "Parmağınızı flaşın üstüne koyun"
+                    self.message = "Place your finger over the camera flash."
                     self.resetSignal()
                     return
                 }
@@ -203,7 +203,7 @@ struct MeasurementView: View {
     @Environment(\.dismiss) private var dismiss
 
     @State private var bpm: Int = 0
-    @State private var message: String = "Parmağınızı flaşın üstüne koyun"
+    @State private var message: String = "Place your finger over the camera flash."
     @State private var fingerDetected: Bool = false
 
     @State private var isMeasuring = false
@@ -255,13 +255,13 @@ struct MeasurementView: View {
                 VStack(spacing: 10) {
                     Group {
                         if isMeasuring && !showBPM {
-                            Text("Ölçüm yapılıyor...")
+                            Text("Measuring...")
                                 .font(.system(size: 20, weight: .semibold))
                         } else if showBPM && isMeasuring {
-                            Text("Ölçüm yapılıyor... Ölçülen Değer = \(bpm)")
+                            Text("Measuring... Measured Value: \(bpm)")
                                 .font(.system(size: 20, weight: .bold))
                         } else if !isMeasuring && showBPM {
-                            Text("Ölçülen Değer = \(bpm)")
+                            Text("Heart Rate: \(bpm)")
                                 .font(.system(size: 28, weight: .bold))
                         } else {
                             Text(" ")
@@ -278,7 +278,7 @@ struct MeasurementView: View {
                         .padding(.horizontal, 24)
 
                     if isMeasuring && !fingerDetected {
-                        Text("Parmağınızı flaşın üstüne koymadan ölçüm yapılamaz.")
+                        Text("Please place your finger over the camera flash to start measurement.")
                             .font(.system(size: 14, weight: .medium))
                             .foregroundColor(.red)
                             .padding(.top, 2)
@@ -294,7 +294,7 @@ struct MeasurementView: View {
             Button {
                 startMeasurement()
             } label: {
-                Text(isMeasuring ? "Ölçüm Yapılıyor" : "Ölçüme Başla")
+                Text(isMeasuring ? "Measuring..." : "Start Measurement")
                     .font(.title3.weight(.semibold))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
@@ -314,7 +314,7 @@ struct MeasurementView: View {
                 resumeTimerIfNeeded()
             } else {
                 stopTimer()
-                message = "Parmağınızı flaşın üstüne koyun"
+                message = "Place your finger over the flash."
             }
         }
         .onDisappear {
@@ -325,7 +325,7 @@ struct MeasurementView: View {
 
     private func startMeasurement() {
         bpm = 0
-        message = "Parmağınızı flaşın üstüne koyun"
+        message = "Place your finger over the flash."
         isMeasuring = true
         elapsedTime = 0
         showBPM = false
@@ -354,7 +354,7 @@ struct MeasurementView: View {
                 timer = nil
                 isMeasuring = false
                 showBPM = true
-                message = "Ölçülen Değer = \(bpm)"
+                message = "Measured Value = \(bpm)"
 
                 if bpm > 0 && fingerDetected {
                     BPMStorage.appendSession(bpm: bpm)

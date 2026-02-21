@@ -19,7 +19,7 @@ struct HistoryView: View {
                     chartCard
 
                     HStack {
-                        Text("Günlük Kayıtlar")
+                        Text("Daily Records")
                             .font(.title3.bold())
                             .foregroundColor(.black)
                         Spacer()
@@ -76,7 +76,7 @@ struct HistoryView: View {
 
                 Spacer()
 
-                Text("Geçmiş Veriler")
+                Text("Historical Data")
                     .font(.title2.bold())
                     .foregroundColor(.white)
 
@@ -93,22 +93,22 @@ struct HistoryView: View {
 
     private var chartCard: some View {
         VStack(spacing: 12) {
-            Text("Son 7 Günlük BPM Ortalaması")
+            Text("7-Day Average BPM")
                 .font(.headline)
                 .foregroundColor(.black)
 
             if last7ChartData.isEmpty {
-                Text("Grafik için yeterli veri yok")
+                Text("Insufficient data to display the chart.")
                     .foregroundColor(.gray)
                     .padding(.vertical, 24)
             } else {
                 Chart(last7ChartData) { item in
                     LineMark(
-                        x: .value("Gün", item.dayLabel),
+                        x: .value("Day", item.dayLabel),
                         y: .value("BPM", item.bpm)
                     )
                     PointMark(
-                        x: .value("Gün", item.dayLabel),
+                        x: .value("Day", item.dayLabel),
                         y: .value("BPM", item.bpm)
                     )
                 }
@@ -118,7 +118,7 @@ struct HistoryView: View {
             }
 
             HStack(spacing: 10) {
-                Text("Görsel Ortalama")
+                Text("Visual Average")
                     .font(.subheadline.weight(.medium))
                     .foregroundColor(.gray)
 
@@ -150,11 +150,11 @@ struct HistoryView: View {
                 .font(.system(size: 28, weight: .semibold))
                 .foregroundColor(accent)
 
-            Text("Henüz veri yok")
+            Text("No data yet")
                 .font(.headline)
                 .foregroundColor(.black)
 
-            Text("Ölçüm yaptıktan sonra burada günlük ortalamalarını göreceksin.")
+            Text("Complete a measurement to view your daily averages.")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
@@ -209,11 +209,11 @@ struct HistoryView: View {
             }
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("Haftalık Ortalama BPM")
+                Text("Weekly Average BPM")
                     .font(.headline)
                     .foregroundColor(.black)
 
-                Text("Son 7 günlük ortalama")
+                Text("7-Day Average")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

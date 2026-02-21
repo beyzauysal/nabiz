@@ -18,7 +18,7 @@ struct ContentView: View {
                         .frame(width: 230)
                         .padding(.bottom, 10)
 
-                    Text("Kalp ritmini anında ölç")
+                    Text("Measure your heart rate instantly")
                         .font(.subheadline.weight(.medium))
                         .foregroundColor(.gray)
 
@@ -30,7 +30,7 @@ struct ContentView: View {
                             HStack {
                                 Image(systemName: "waveform.path.ecg")
                                     .font(.system(size: 18, weight: .semibold))
-                                Text("Ölçüm Yap")
+                                Text("Start Measuring")
                                     .font(.headline)
                                 Spacer()
                                 Image(systemName: "chevron.right")
@@ -49,7 +49,7 @@ struct ContentView: View {
                             HStack {
                                 Image(systemName: "clock.arrow.circlepath")
                                     .font(.system(size: 18, weight: .semibold))
-                                Text("Geçmiş")
+                                Text("History")
                                     .font(.headline)
                                 Spacer()
                                 Image(systemName: "chevron.right")
