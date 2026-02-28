@@ -26,8 +26,15 @@ struct CameraPreview: UIViewRepresentable {
         context.coordinator.previewLayer = previewLayer
         context.coordinator.configureCamera()
 
-        DispatchQueue.global().async {
-            session.startRunning()
+        guard context.coordinator.isCameraAuthorized else {
+            return view
+        }
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            if !self.session.isRunning {
+                self.session.startRunning()
+            }
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 context.coordinator.turnOnTorch()
             }
@@ -38,10 +45,27 @@ struct CameraPreview: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIView, context: Context) {
         context.coordinator.previewLayer?.frame = uiView.bounds
+
+        if context.coordinator.isCameraAuthorized {
+            if !session.isRunning {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self.session.startRunning()
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                context.coordinator.turnOnTorch()
+            }
+        }
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(bpm: $bpm, message: $message, fingerDetected: $fingerDetected, isMeasuring: $isMeasuring, session: session)
+        Coordinator(
+            bpm: $bpm,
+            message: $message,
+            fingerDetected: $fingerDetected,
+            isMeasuring: $isMeasuring,
+            session: session
+        )
     }
 
     class Coordinator: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -55,13 +79,21 @@ struct CameraPreview: UIViewRepresentable {
         private let session: AVCaptureSession
         private var device: AVCaptureDevice?
 
+        var isCameraAuthorized: Bool = false
+
         private var redValues: [CGFloat] = []
         private var smoothedValues: [CGFloat] = []
         private var bpmValues: [Int] = []
         private var lastPeakTime: CFTimeInterval = 0
         private var peaks: [CFTimeInterval] = []
 
-        init(bpm: Binding<Int>, message: Binding<String>, fingerDetected: Binding<Bool>, isMeasuring: Binding<Bool>, session: AVCaptureSession) {
+        init(
+            bpm: Binding<Int>,
+            message: Binding<String>,
+            fingerDetected: Binding<Bool>,
+            isMeasuring: Binding<Bool>,
+            session: AVCaptureSession
+        ) {
             _bpm = bpm
             _message = message
             _fingerDetected = fingerDetected
@@ -71,15 +103,51 @@ struct CameraPreview: UIViewRepresentable {
         }
 
         func configureCamera() {
+
+            let status = AVCaptureDevice.authorizationStatus(for: .video)
+
+            switch status {
+            case .authorized:
+                isCameraAuthorized = true
+                break
+
+            case .notDetermined:
+                isCameraAuthorized = false
+                AVCaptureDevice.requestAccess(for: .video) { granted in
+                    DispatchQueue.main.async {
+                        self.isCameraAuthorized = granted
+                        if granted {
+                            self.configureCamera()
+                        } else {
+                            self.message = "Camera permission is required to measure pulse."
+                        }
+                    }
+                }
+                return
+
+            default:
+                isCameraAuthorized = false
+                DispatchQueue.main.async {
+                    self.message = "Camera access is blocked. Please enable it in Settings."
+                }
+                return
+            }
+
             session.beginConfiguration()
+            defer { session.commitConfiguration() }
+
             session.sessionPreset = .low
 
-            guard let videoDevice = AVCaptureDevice.default(for: .video) else { return }
+            guard let videoDevice = AVCaptureDevice.default(for: .video) else {
+                return
+            }
             device = videoDevice
 
             do {
                 let input = try AVCaptureDeviceInput(device: videoDevice)
-                if session.canAddInput(input) { session.addInput(input) }
+                if session.canAddInput(input) {
+                    session.addInput(input)
+                }
             } catch {
                 return
             }
@@ -87,18 +155,20 @@ struct CameraPreview: UIViewRepresentable {
             let output = AVCaptureVideoDataOutput()
             output.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
             output.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
-            if session.canAddOutput(output) { session.addOutput(output) }
-
-            session.commitConfiguration()
+            if session.canAddOutput(output) {
+                session.addOutput(output)
+            }
         }
 
         func turnOnTorch() {
+            guard isCameraAuthorized else { return }
+
             if let device = device, device.hasTorch {
                 do {
                     try device.lockForConfiguration()
                     device.torchMode = .on
                     device.unlockForConfiguration()
-                } catch {}
+                } catch { }
             }
         }
 
@@ -111,10 +181,11 @@ struct CameraPreview: UIViewRepresentable {
             bpm = 0
         }
 
-        func captureOutput(_ output: AVCaptureOutput,
-                           didOutput sampleBuffer: CMSampleBuffer,
-                           from connection: AVCaptureConnection) {
-
+        func captureOutput(
+            _ output: AVCaptureOutput,
+            didOutput sampleBuffer: CMSampleBuffer,
+            from connection: AVCaptureConnection
+        ) {
             guard isMeasuring else { return }
 
             guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }

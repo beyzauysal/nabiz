@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2337D9F2F49D9E800C3375B /* nabiz-preview-1.png in Resources */ = {isa = PBXBuildFile; fileRef = B2337D9E2F49D9E800C3375B /* nabiz-preview-1.png */; };
 		B2718B702F49CCA300B592DF /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B682F49CCA300B592DF /* CameraService.swift */; };
 		B2718B712F49CCA300B592DF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6A2F49CCA300B592DF /* ContentView.swift */; };
 		B2718B722F49CCA300B592DF /* MeasurementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6C2F49CCA300B592DF /* MeasurementView.swift */; };
@@ -14,18 +15,17 @@
 		B2718B742F49CCA300B592DF /* nabizStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6F2F49CCA300B592DF /* nabizStorage.swift */; };
 		B2718B752F49CCA300B592DF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B692F49CCA300B592DF /* CameraView.swift */; };
 		B2718B762F49CCA300B592DF /* nabizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2718B6E2F49CCA300B592DF /* nabizApp.swift */; };
-		B2718B772F49CCA300B592DF /* nabiz-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = B2718B6D2F49CCA300B592DF /* nabiz-preview.png */; };
 		B2718B782F49CCA300B592DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B2718B672F49CCA300B592DF /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B2337D9E2F49D9E800C3375B /* nabiz-preview-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nabiz-preview-1.png"; sourceTree = "<group>"; };
 		B2718B672F49CCA300B592DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B2718B682F49CCA300B592DF /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		B2718B692F49CCA300B592DF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		B2718B6A2F49CCA300B592DF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B2718B6B2F49CCA300B592DF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		B2718B6C2F49CCA300B592DF /* MeasurementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementView.swift; sourceTree = "<group>"; };
-		B2718B6D2F49CCA300B592DF /* nabiz-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nabiz-preview.png"; sourceTree = "<group>"; };
 		B2718B6E2F49CCA300B592DF /* nabizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nabizApp.swift; sourceTree = "<group>"; };
 		B2718B6F2F49CCA300B592DF /* nabizStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nabizStorage.swift; sourceTree = "<group>"; };
 		B27546952E40C39B009005CA /* BPM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BPM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +51,7 @@
 				B2718B6A2F49CCA300B592DF /* ContentView.swift */,
 				B2718B6B2F49CCA300B592DF /* HistoryView.swift */,
 				B2718B6C2F49CCA300B592DF /* MeasurementView.swift */,
-				B2718B6D2F49CCA300B592DF /* nabiz-preview.png */,
+				B2337D9E2F49D9E800C3375B /* nabiz-preview-1.png */,
 				B2718B6E2F49CCA300B592DF /* nabizApp.swift */,
 				B2718B6F2F49CCA300B592DF /* nabizStorage.swift */,
 				B27546962E40C39B009005CA /* Products */,
@@ -128,8 +128,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2718B772F49CCA300B592DF /* nabiz-preview.png in Resources */,
 				B2718B782F49CCA300B592DF /* Assets.xcassets in Resources */,
+				B2337D9F2F49D9E800C3375B /* nabiz-preview-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,14 +286,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = "nabız";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Kameraya erişim, nabzınızı ölçmek için gerekiyor.\n";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use the camera (and flash) to measure your pulse using PPG.\n";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Mikrofon erişimi, ölçüm için gerekiyor.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,14 +320,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_CFBundleDisplayName = "nabız";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Kameraya erişim, nabzınızı ölçmek için gerekiyor.\n";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We use the camera (and flash) to measure your pulse using PPG.\n";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Mikrofon erişimi, ölçüm için gerekiyor.\n";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
